@@ -43,21 +43,20 @@ public class PlayerController : MonoBehaviour
             PlayerMovement();
             speedBoost();
             haltSpeed();
-            FireUsingGun();
             ResetRotation();
         }
 
     }
 
-    /*
-     * private void Update()
+    
+    private void Update()
     {
         if (PV.IsMine)
         {
-            
+            FireUsingGun();
         }
     }
-    */
+    
 
     public void PlayerRotation()
     {
@@ -128,15 +127,10 @@ public class PlayerController : MonoBehaviour
 
     private void FireUsingGun()
     {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.L))
             {
-                GetComponentInChildren<Weapon>().Fire();
-                /*GameObject spawnedBullet = PhotonNetwork.Instantiate(bullet.name,
-                    new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z),
-                    Quaternion.identity);
-                spawnedBullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletSpeed;
-                Destroy(spawnedBullet, 4);
-                newFireTime = Time.time + fireCooldown;*/
+                Debug.Log("Spacebar registered");
+                GetComponentInChildren<Weapon>().Fire(PV);
             }
     }
 

@@ -6,6 +6,8 @@ using Photon.Pun;
 [CreateAssetMenu(menuName = "Gun")]
 public class Gun : ScriptableObject
 {
+    public string gunName;
+    public int damage;
     public int bulletSpeed;
     public int fireCooldown;
     public GameObject bullet;

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc41a8a696e572e4da5abe8845c939bb, type: 3}
   m_Name: Sniper
   m_EditorClassIdentifier: 
+  gunName: sniper
+  damage: 90
   bulletSpeed: 20
   fireCooldown: 1
   bullet: {fileID: 3304229237812294370, guid: 6b8a2c1ea1f14074a8121de533a1a51a, type: 3}
-  newFireTime: 0
+  newFireTime: 72.00908
