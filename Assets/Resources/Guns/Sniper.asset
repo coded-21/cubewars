@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: sniper
   damage: 90
-  bulletSpeed: 2000
+  bulletSpeed: 4000
   fireCooldown: 1
   bullet: {fileID: 3304229237812294370, guid: 6b8a2c1ea1f14074a8121de533a1a51a, type: 3}
   newFireTime: 9.483219

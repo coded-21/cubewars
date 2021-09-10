@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System;
 
 public class BulletInfo : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class BulletInfo : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        collision.gameObject.GetComponent<IDamagable>()?.TakeDamage(damage, shooter);
         ContactPoint _contactPoint = collision.contacts[0];
         ProcessHit(_contactPoint);
         Debug.Log("Player with view ID " + shooter.ViewID + " hit: " + collision.gameObject.name + " with a damage of " + damage);
@@ -29,7 +31,11 @@ public class BulletInfo : MonoBehaviour
 
     private void ProcessHit(ContactPoint contactPoint)
     {
-        PhotonNetwork.Instantiate(hitVFX.name, contactPoint.point, Quaternion.identity);
-        Destroy(gameObject);
+        //vfx
+        GameObject vfx = PhotonNetwork.Instantiate(hitVFX.name, contactPoint.point, Quaternion.identity);
+        //destroy
+        gameObject.SetActive(false);
+        Destroy(vfx, 1);
+        Destroy(gameObject, 2);
     }
 }

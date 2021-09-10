@@ -9,7 +9,7 @@ public class Gun : ScriptableObject
     public string gunName;
     public int damage;
     public int bulletSpeed;
-    public int fireCooldown;
+    public float fireCooldown;
     public GameObject bullet;
     [HideInInspector] public float newFireTime;
 }

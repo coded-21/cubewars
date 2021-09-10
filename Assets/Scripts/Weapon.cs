@@ -40,8 +40,9 @@ public class Weapon : MonoBehaviourPunCallbacks
         }
     }
 
-    private void GunSwitch()
+    public void GunSwitch()
     {
+        currentGun.newFireTime = 0;
         for (int i = 0; i < gunGraphics.Length; i++)
         {
             if (gunGraphics[i].gameObject.name == currentGun.gunName)
