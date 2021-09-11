@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Player : MonoBehaviour, IDamagable
+public class Player : MonoBehaviourPunCallbacks, IDamagable
 {
     PhotonView PV;
+    public PlayerManager playerManager;
     [HideInInspector] public Rigidbody rb;
 
     [Header("Player Controller")]
@@ -21,13 +22,19 @@ public class Player : MonoBehaviour, IDamagable
     bool reverse = false;
 
     [Header("Player Status")]
-    public int health;
+    public int health = 100;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
+        //Debug.Log("Yo check this out: " + PV.InstantiationData[0] + " is the view ID of Player Manager of this brat.");
+        playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
+    }
+
+    private void Start()
+    {
         newSpeedBoostTime = 0f;
         newHaltSpeedTime = 0f;
         health = 100;
@@ -41,9 +48,6 @@ public class Player : MonoBehaviour, IDamagable
         {
             PlayerRotation();
             PlayerMovement();
-            speedBoost();
-            haltSpeed();
-            ResetRotation();
         }
 
     }
@@ -54,6 +58,10 @@ public class Player : MonoBehaviour, IDamagable
         if (PV.IsMine)
         {
             FireUsingGun();
+            ResetRotation();
+            speedBoost();
+            haltSpeed();
+            if (Input.GetKeyDown(KeyCode.N)) { SelfHarm(); }
         }
     }
     
@@ -142,8 +150,38 @@ public class Player : MonoBehaviour, IDamagable
         }
     }
 
+    void SelfHarm()
+    {
+        PV.RPC("RPC_SelfHarm", RpcTarget.All);
+    }
     public void TakeDamage(int _damage,  PhotonView _shooter)
     {
+        PV.RPC("RPC_TakeDamage", RpcTarget.All, _damage, _shooter);
+    }
+
+    [PunRPC]
+    void RPC_SelfHarm()
+    {
+        if (!PV.IsMine) return;
+
+        health -= 20;
+        Debug.Log(health);
+
+        if(health <= 0)
+        {
+            playerManager.SelfDestruct();
+        }
+    }
+
+    [PunRPC]
+    void RPC_TakeDamage(int _damage, PhotonView _shooter)
+    {
+        if (!PV.IsMine) return;
         health -= _damage;
+
+        if(health <= 0)
+        {
+            playerManager.PlayerDeath(_shooter);
+        }
     }
 }

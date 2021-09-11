@@ -8,6 +8,7 @@ using System.IO;
 public class PlayerManager: MonoBehaviour
 {
     PhotonView PV;
+    GameObject player;
 
     [Header("Spawn Dimentions")]
     public float minX;
@@ -28,15 +29,25 @@ public class PlayerManager: MonoBehaviour
         }
     }
 
-    private void SpawnPlayer()
+    void SpawnPlayer()
     {
         Vector3 spawnPoint = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Player"), spawnPoint, Quaternion.Euler(0, 0, 0));
+        player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Player"),
+            spawnPoint,
+            Quaternion.Euler(0, 0, 0), 0,
+            new object[] { PV.ViewID });
     }
 
-    public void PlayerDeath(PhotonView _dedPlayer)
+    public void PlayerDeath(PhotonView shooter)
     {
-        Debug.Log("Stupid player with View ID: " + _dedPlayer.ViewID + " got wrecked!");
+        Debug.Log(player + " was demolished by a tango with ID: " + shooter.ViewID);
+    }
+
+    public void SelfDestruct()
+    {
+        PhotonNetwork.Destroy(player);
+        Debug.Log("You finally got a kill, but guess who you killed? :)");
+        SpawnPlayer();
     }
 
 }

@@ -24,15 +24,8 @@ public class PlayerConfig : MonoBehaviourPunCallbacks
 
         if (PV.IsMine)
         {
-            //set-up camera
-            vCam = FindObjectOfType<CinemachineVirtualCamera>();
-            vCam.Follow = gameObject.transform;
-
-            //give random color to player
-            playerColor = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-            playerMatBody.GetComponent<Renderer>().material.color = playerColor;
-            playerMatSkirts.GetComponent<Renderer>().material.color = playerColor;
-            playerMatSkirts.GetComponent<Renderer>().material.color = playerColor;
+            CameraSetup();
+            PV.RPC("AssignColor", RpcTarget.AllBuffered);
         }
         else
         {
@@ -49,5 +42,20 @@ public class PlayerConfig : MonoBehaviourPunCallbacks
             }
         }
 
+    }
+
+    [PunRPC]
+    private void AssignColor()
+    {
+        playerColor = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+        playerMatBody.GetComponent<Renderer>().material.color = playerColor;
+        playerMatSkirts.GetComponent<Renderer>().material.color = playerColor;
+        playerMatSkirts.GetComponent<Renderer>().material.color = playerColor;
+    }
+
+    private void CameraSetup()
+    {
+        vCam = FindObjectOfType<CinemachineVirtualCamera>();
+        vCam.Follow = gameObject.transform;
     }
 }
