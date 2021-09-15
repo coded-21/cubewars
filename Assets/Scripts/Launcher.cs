@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Photon.Realtime;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
@@ -11,6 +12,8 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public TMP_InputField hostInput;
     public TMP_InputField joinInput;
+    [SerializeField] Transform roomListContent;
+    [SerializeField] GameObject roomListItem;
 
     private void Awake()
     {
@@ -44,7 +47,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("Joined Lobby");
-        SceneManager.LoadScene("Lobby");
+        MenuManager.Instance.OpenMenu("title");
+        //SceneManager.LoadScene("Lobby");
     }
 
     public void CreateRoom()
@@ -56,13 +60,25 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom(hostInput.text);
     }
 
-    public void JoinRoom()
+    public void JoinRoom(RoomInfo info)
     {
-        PhotonNetwork.JoinRoom(joinInput.text);
+        PhotonNetwork.JoinRoom(info.Name);
     }
 
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("Game");
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        foreach (Transform room_t in roomListContent)
+        {
+            Destroy(gameObject);
+        }
+        for (int i = 0; i < roomList.Count; i++)
+        {
+            Instantiate(roomListItem, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
+        }
     }
 }

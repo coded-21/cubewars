@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-[CreateAssetMenu(menuName = "Gun")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Gun")]
 public class Gun : ScriptableObject
 {
     public string gunName;
     public int damage;
     public int bulletSpeed;
     public float fireCooldown;
-    public GameObject bullet;
+    public GameObject bulletPrefab;
+    public string bulletPrefabName;
     [HideInInspector] public float newFireTime;
 }

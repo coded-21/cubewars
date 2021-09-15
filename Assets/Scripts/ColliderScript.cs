@@ -9,7 +9,7 @@ public class ColliderScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<Player>().playerManager.SelfDestruct();
+            other.GetComponent<PlayerStatus>().playerManager.SelfDestruct();
         }
         else Destroy(other.gameObject);
     }

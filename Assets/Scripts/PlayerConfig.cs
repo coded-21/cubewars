@@ -31,6 +31,7 @@ public class PlayerConfig : MonoBehaviourPunCallbacks
         {
             playerCam.enabled = false;
 
+            /*
             MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
             for (int i = 0; i < scripts.Length; i++)
             {
@@ -40,6 +41,7 @@ public class PlayerConfig : MonoBehaviourPunCallbacks
 
                 scripts[i].enabled = false;
             }
+            */
         }
 
     }

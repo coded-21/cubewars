@@ -21,11 +21,14 @@ public class UsernameDisplay : MonoBehaviour
     }
     void Update()
     {
-        Vector3 pos = cam.WorldToScreenPoint(lookat.position + offset);
-
-        if(transform.position != pos)
+        if (cam != null)
         {
-            transform.position = pos;
+            Vector3 pos = cam.WorldToScreenPoint(lookat.position + offset);
+
+            if (transform.position != pos)
+            {
+                transform.position = pos;
+            }
         }
         //transform.LookAt(cam.transform);
         //transform.Rotate(Vector3.up, 180f);

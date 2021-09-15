@@ -38,9 +38,11 @@ public class PlayerManager: MonoBehaviour
             new object[] { PV.ViewID });
     }
 
-    public void PlayerDeath(PhotonView shooter)
+    public void PlayerDeath()
     {
-        Debug.Log(player + " was demolished by a tango with ID: " + shooter.ViewID);
+        Debug.Log(player.GetPhotonView().ViewID + " was demolished by a tango");
+        PhotonNetwork.Destroy(player);
+        SpawnPlayer();
     }
 
     public void SelfDestruct()

@@ -16,5 +16,6 @@ MonoBehaviour:
   damage: 10
   bulletSpeed: 3000
   fireCooldown: 0.2
-  bullet: {fileID: 3304229237812294370, guid: 6b8a2c1ea1f14074a8121de533a1a51a, type: 3}
+  bulletPrefab: {fileID: 3304229237812294370, guid: 6b8a2c1ea1f14074a8121de533a1a51a, type: 3}
+  bulletPrefabName: Bullet
   newFireTime: 184.78145

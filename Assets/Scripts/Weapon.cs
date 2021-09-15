@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.IO;
 
 public class Weapon : MonoBehaviourPunCallbacks
 {
@@ -9,7 +10,7 @@ public class Weapon : MonoBehaviourPunCallbacks
     public Gun currentGun;
     public Transform firePoint;
     public GameObject[] gunGraphics;
-    Vector3 direction;
+    [HideInInspector] public Vector3 direction;
 
     private void Start()
     {
@@ -17,26 +18,25 @@ public class Weapon : MonoBehaviourPunCallbacks
         GunSwitch();
     }
 
-    public void Fire(PhotonView PV_Shooter)
+    public void Fire(PhotonView shooter)
     {
         if (Time.time > currentGun.newFireTime)
         {
             Debug.Log("Well, you shot.");
             //spawn
-            GameObject bullet = PhotonNetwork.Instantiate(currentGun.bullet.name,
-                        new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z),
-                        Quaternion.identity);
-            //give bullet info
-            BulletInfo b = bullet.GetComponent<BulletInfo>();
             direction = Vector3.Normalize(firePoint.position - transform.position);
-            b.shooter = PV_Shooter;
-            b.damage = currentGun.damage;
-            b.direction = direction;
-            b.bulletSpeed = currentGun.bulletSpeed;
+            ShootingManager.Instance.Shoot(currentGun.bulletPrefabName,
+                firePoint.position,
+                direction,
+                currentGun.bulletSpeed,
+                currentGun.damage);
+            /*
+            GameObject bullet = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", currentGun.bulletPrefabName),
+                        new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z),
+                        Quaternion.identity, 0, new object[] { shooter.ViewID });
+            */
             //cooldown
             currentGun.newFireTime = Time.time + currentGun.fireCooldown;
-            //destroy
-            Destroy(bullet, 4);
         }
     }
 
