@@ -68,16 +68,17 @@
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\PlayerConfig.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\ShootingManager.cs" />
     <Compile Include="Assets\BrokenVector\LowPolyFencePack\Scripts\DoorController.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
+    <Compile Include="Assets\Scripts\PlayerStatus.cs" />
     <Compile Include="Assets\Scripts\ColliderScript.cs" />
     <Compile Include="Assets\Scripts\BulletInfo.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\BumpScript.cs" />
     <Compile Include="Assets\Scripts\RoomListItem.cs" />
     <Compile Include="Assets\Scripts\UsernameDisplay.cs" />
-    <Compile Include="Assets\Scripts\PlayerStatus.cs" />
-    <Compile Include="Assets\Scripts\ShootingManager.cs" />
+    <Compile Include="Assets\Scripts\HUD.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

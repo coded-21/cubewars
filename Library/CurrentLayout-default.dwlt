@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 820.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,10 +119,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 771
-  m_MinSize: {x: 879, y: 492}
-  m_MaxSize: {x: 16004, y: 14042}
+  m_MinSize: {x: 880, y: 492}
+  m_MaxSize: {x: 16005, y: 14042}
   vertical: 0
-  controlID: 1992
+  controlID: 16274
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,10 +144,10 @@ MonoBehaviour:
     y: 0
     width: 1224.8
     height: 771
-  m_MinSize: {x: 603, y: 492}
-  m_MaxSize: {x: 12003, y: 14042}
+  m_MinSize: {x: 605, y: 492}
+  m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 1966
+  controlID: 16252
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,10 +170,10 @@ MonoBehaviour:
     y: 0
     width: 1224.8
     height: 466.4
-  m_MinSize: {x: 603, y: 221}
-  m_MaxSize: {x: 12003, y: 4021}
+  m_MinSize: {x: 605, y: 221}
+  m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 1967
+  controlID: 16253
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_MaximizeOnPlay: 0
+  m_MaximizeOnPlay: 1
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
@@ -425,7 +425,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 56a8ffff7aa8ffff62aeffff66aeffff78b6ffff9cb6ffff84bcffff88bcfffff0beffff16bffffffec4ffff4afbffff
+      m_ExpandedIDs: e081ffff0482fffff287fffffa87ffff929bffffa0a8ffff86f3ffffaaf3ffff98f9ffffa0f9ffff4afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -441,7 +441,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 11}
+        m_ClientGUIView: {fileID: 8}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -485,9 +485,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: -2, z: 0}
+    m_Target: {x: 0.65123, y: 0.9873111, z: -0.09976241}
     speed: 2
-    m_Value: {x: 0, y: -2, z: 0}
+    m_Value: {x: 0.65123, y: 0.9873111, z: -0.09976241}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -534,13 +534,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.24491037, y: 0.023266438, z: -0.0058789775, w: 0.9692487}
+    m_Target: {x: 0.029938452, y: 0.78055865, z: -0.037495647, w: 0.623239}
     speed: 2
-    m_Value: {x: -0.24491036, y: -0.023266437, z: 0.005878977, w: -0.9692487}
+    m_Value: {x: 0.029938454, y: 0.78055865, z: -0.037495647, w: 0.623239}
   m_Size:
-    m_Target: 34.452347
+    m_Target: 1.0901413
     speed: 2
-    m_Value: 34.452347
+    m_Value: 1.0901413
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -628,22 +628,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/PhotonPrefabs
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Resources/PhotonPrefabs
+  - Assets/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\Repos\Unity 2D\Cube Wars
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 203e0000
-    m_LastClickedID: 15904
-    m_ExpandedIDs: 00000000003e0000023e0000043e0000063e0000083e00000a3e00000c3e0000103e0000
+    m_SelectedIDs: 283e0000
+    m_LastClickedID: 15912
+    m_ExpandedIDs: 00000000043e0000063e0000083e00000a3e00000c3e00000e3e0000103e0000143e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -671,7 +671,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000003e0000023e0000043e0000063e0000083e00000a3e00000c3e0000
+    m_ExpandedIDs: 00000000043e0000063e0000083e00000a3e00000c3e00000e3e0000103e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -748,9 +748,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 540
-    width: 1223.8
-    height: 283.6
+    y: 539.2
+    width: 1224
+    height: 284
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &19
 MonoBehaviour:

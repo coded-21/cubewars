@@ -31,17 +31,16 @@ public class PlayerConfig : MonoBehaviourPunCallbacks
         {
             playerCam.enabled = false;
 
-            /*
+            
             MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
             for (int i = 0; i < scripts.Length; i++)
             {
-                if (scripts[i] is PlayerConfig) continue;
-                else if (scripts[i] is PhotonView) continue;
-                else if (scripts[i] is PhotonTransformView) continue;
-
-                scripts[i].enabled = false;
+                if (scripts[i] is PlayerController)
+                {
+                    scripts[i].enabled = false;
+                }
             }
-            */
+            
         }
 
     }

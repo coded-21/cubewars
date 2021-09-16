@@ -70,3 +70,6 @@ MonoBehaviour:
   minZ: -10
   maxX: 10
   maxZ: 10
+  score: 0
+  killCount: 0
+  deathCount: 0

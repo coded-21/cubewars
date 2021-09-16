@@ -17,23 +17,16 @@ public class PlayerStatus : MonoBehaviour, IDamagable
         currentHealth = maxHealth;
         
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, int shooterID)
     {
         if (PV.IsMine)
         {
-            PV.RPC("RPC_TakeDamage", RpcTarget.All, damage);
-        }
-    }
-
-    [PunRPC]
-    void RPC_TakeDamage(int _damage)
-    {
-        if (!PV.IsMine) return;
-        currentHealth -= _damage;
-
-        if (currentHealth <= 0)
-        {
-            playerManager.PlayerDeath();
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                playerManager.Die();
+                PhotonView.Find(shooterID).GetComponent<PlayerManager>().Kill();
+            }
         }
     }
 

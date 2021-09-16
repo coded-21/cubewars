@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - BumpScript
     - ColliderScript
     - Gun
+    - HUD
     - Launcher
     - Menu
     - MenuManager
@@ -23,8 +24,6 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineFramingTransposer
     - Cinemachine.CinemachinePipeline
     - Cinemachine.CinemachineVirtualCamera
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonRigidbodyView
     - Photon.Pun.PhotonTransformView
@@ -96,25 +95,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2084}
     - Class: 114
-      Script: {instanceID: 2602}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2644}
+      Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 3052}
-    - Class: 114
-      Script: {instanceID: 3256}
+      Script: {instanceID: 3054}
     - Class: 114
       Script: {instanceID: 3258}
     - Class: 114
-      Script: {instanceID: 3298}
+      Script: {instanceID: 3260}
     - Class: 114
       Script: {instanceID: 3300}
     - Class: 114
-      Script: {instanceID: 3826}
+      Script: {instanceID: 3302}
     - Class: 114
-      Script: {instanceID: 3952}
+      Script: {instanceID: 3828}
     - Class: 114
-      Script: {instanceID: 3990}
+      Script: {instanceID: 3954}
+    - Class: 114
+      Script: {instanceID: 3992}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -193,53 +192,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2084}
     - Class: 114
+      Script: {instanceID: 2398}
+    - Class: 114
       Script: {instanceID: 2404}
     - Class: 114
-      Script: {instanceID: 2498}
+      Script: {instanceID: 2500}
     - Class: 114
-      Script: {instanceID: 2506}
+      Script: {instanceID: 2508}
     - Class: 114
-      Script: {instanceID: 2594}
+      Script: {instanceID: 2596}
     - Class: 114
-      Script: {instanceID: 2644}
+      Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 2654}
+      Script: {instanceID: 2656}
     - Class: 114
-      Script: {instanceID: 2846}
+      Script: {instanceID: 2848}
     - Class: 114
-      Script: {instanceID: 2894}
+      Script: {instanceID: 2896}
     - Class: 114
-      Script: {instanceID: 2956}
+      Script: {instanceID: 2958}
     - Class: 114
-      Script: {instanceID: 2984}
+      Script: {instanceID: 2986}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 3010}
     - Class: 114
-      Script: {instanceID: 3184}
+      Script: {instanceID: 3186}
     - Class: 114
-      Script: {instanceID: 3258}
+      Script: {instanceID: 3260}
     - Class: 114
-      Script: {instanceID: 3300}
-    - Class: 114
-      Script: {instanceID: 3432}
+      Script: {instanceID: 3302}
     - Class: 114
       Script: {instanceID: 3434}
     - Class: 114
-      Script: {instanceID: 3656}
+      Script: {instanceID: 3436}
     - Class: 114
-      Script: {instanceID: 3678}
+      Script: {instanceID: 3658}
     - Class: 114
-      Script: {instanceID: 3752}
+      Script: {instanceID: 3680}
     - Class: 114
-      Script: {instanceID: 3826}
+      Script: {instanceID: 3754}
     - Class: 114
-      Script: {instanceID: 3864}
+      Script: {instanceID: 3828}
     - Class: 114
-      Script: {instanceID: 3952}
+      Script: {instanceID: 3866}
     - Class: 114
-      Script: {instanceID: 3990}
+      Script: {instanceID: 3954}
     - Class: 114
-      Script: {instanceID: 4008}
+      Script: {instanceID: 3992}
+    - Class: 114
+      Script: {instanceID: 4010}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -513,7 +514,7 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
-      Hash: ae08e1e215fb0be14ee79b8453271711
+      Hash: a93c44d137ec0328f8fc5672c14765fe
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerManager
@@ -625,6 +626,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineIndependentImpulseListener
+  - hash:
+      serializedVersion: 2
+      Hash: e7665d867ebb79bc63a198808604d701
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HUD
   - hash:
       serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
@@ -1017,7 +1024,7 @@ ScriptsOnlyBuild:
     className: CinemachinePipeline
   - hash:
       serializedVersion: 2
-      Hash: cd0ddfb94fa4a972996197ccbe1459df
+      Hash: 21ef7d2e66d919ba2862b9d4251704cd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BulletInfo

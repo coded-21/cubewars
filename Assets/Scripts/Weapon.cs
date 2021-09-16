@@ -11,30 +11,31 @@ public class Weapon : MonoBehaviourPunCallbacks
     public Transform firePoint;
     public GameObject[] gunGraphics;
     [HideInInspector] public Vector3 direction;
+    PhotonView PlayerPV;
 
     private void Start()
     {
-        currentGun.newFireTime = 0;
-        GunSwitch();
+        PlayerPV = GetComponentInParent<PhotonView>();
+        //if (PlayerPV.IsMine)
+        //{
+            currentGun.newFireTime = 0;
+            GunSwitch();
+        //}
     }
 
-    public void Fire(PhotonView shooter)
+    public void Fire(PhotonView shooterPV)
     {
         if (Time.time > currentGun.newFireTime)
         {
-            Debug.Log("Well, you shot.");
-            //spawn
+            int shooterID = shooterPV.GetComponent<PlayerStatus>().playerManager.GetComponent<PhotonView>().ViewID;
             direction = Vector3.Normalize(firePoint.position - transform.position);
             ShootingManager.Instance.Shoot(currentGun.bulletPrefabName,
                 firePoint.position,
                 direction,
                 currentGun.bulletSpeed,
-                currentGun.damage);
-            /*
-            GameObject bullet = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", currentGun.bulletPrefabName),
-                        new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z),
-                        Quaternion.identity, 0, new object[] { shooter.ViewID });
-            */
+                currentGun.damage,
+                shooterID);
+            
             //cooldown
             currentGun.newFireTime = Time.time + currentGun.fireCooldown;
         }

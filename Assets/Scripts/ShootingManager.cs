@@ -25,21 +25,20 @@ public class ShootingManager : MonoBehaviour
         PV = GetComponent<PhotonView>();
     }
 
-    public void Shoot(string bulletPrefabName, Vector3 firePoint, Vector3 direction, int bulletSpeed, int damage)
+    public void Shoot(string bulletPrefabName, Vector3 firePoint, Vector3 direction, int bulletSpeed, int damage, int shooterID)
     {
         Debug.Log("Shot from ShootManager");
-        PV.RPC("RPC_Shoot", RpcTarget.All, bulletPrefabName, firePoint, direction, bulletSpeed, damage);
+        PV.RPC("RPC_Shoot", RpcTarget.All, bulletPrefabName, firePoint, direction, bulletSpeed, damage, shooterID);
     }
         
     [PunRPC]
-    void RPC_Shoot(string bulletPrefabName, Vector3 firePoint, Vector3 direction, int bulletSpeed, int damage)
+    void RPC_Shoot(string bulletPrefabName, Vector3 firePoint, Vector3 direction, int bulletSpeed, int damage, int shooterID)
     {
-        Debug.Log("RPC Working");
         GameObject bullet = Instantiate(Resources.Load<GameObject>("PhotonPrefabs/" + bulletPrefabName), firePoint, Quaternion.identity);
         BulletInfo b = bullet.GetComponent<BulletInfo>();
         b.direction = direction;
         b.bulletSpeed = bulletSpeed;
         b.damage = damage;
-        //b.shooter = shooter;
+        b.shooterID = shooterID;
     }
 }

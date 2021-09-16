@@ -20,12 +20,10 @@ public class PlayerController : MonoBehaviour
     Vector3 currentPosition;
     bool reverse = false;
 
-    // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
-        //Debug.Log("Yo check this out: " + PV.InstantiationData[0] + " is the view ID of Player Manager of this brat.");
     }
 
     private void Start()
@@ -34,7 +32,6 @@ public class PlayerController : MonoBehaviour
         newHaltSpeedTime = 0f;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     { 
         if (PV.IsMine)
