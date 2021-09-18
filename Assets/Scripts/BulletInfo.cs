@@ -17,7 +17,6 @@ public class BulletInfo : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        //s_weapon = shooter.GetComponentInChildren<Weapon>();
     }
 
     private void FixedUpdate()

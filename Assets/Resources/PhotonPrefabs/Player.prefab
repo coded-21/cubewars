@@ -228,7 +228,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   rotationSpeed: 120
   moveSpeed: 2400
-  boostSpeed: 3000
+  boostSpeed: 2000
   haltSpeedCooldown: 5
   speedBoostCooldown: 5
 --- !u!114 &5181277671557859051
@@ -1172,6 +1172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookat: {fileID: 1171308983350538092}
   offset: {x: 0, y: 3.5, z: 0}
+  usernameText: {fileID: 0}
 --- !u!1001 &1477410114485428024
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,9 +17,9 @@ public class PlayerManager : MonoBehaviour
     public float maxZ;
 
     [Header("In-Game Stats")]
-    public int score;
-    public int killCount;
-    public int deathCount;
+    [HideInInspector] public int score;
+    [HideInInspector] public int killCount;
+    [HideInInspector] public int deathCount;
 
     private void Awake()
     {

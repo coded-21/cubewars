@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hostInput: {fileID: 0}
-  joinInput: {fileID: 0}
   roomListContent: {fileID: 0}
   roomListItem: {fileID: 3348552351968790039, guid: 53dd11241678c974dba15a49799f2a0f, type: 3}
+  playerListContent: {fileID: 0}
+  playerListItem: {fileID: 7261030620249635746, guid: e946202fc1ad4734889ba1cf81e32334, type: 3}
+  roomName: {fileID: 0}
+  startGameButton: {fileID: 0}

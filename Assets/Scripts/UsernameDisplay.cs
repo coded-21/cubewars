@@ -1,6 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using Photon.Realtime;
 
 public class UsernameDisplay : MonoBehaviour
 {
@@ -9,16 +12,18 @@ public class UsernameDisplay : MonoBehaviour
     public Vector3 offset;
     private void Start()
     {
+        FindCam();
+    }
+
+    private void FindCam()
+    {
         if (cam == null)
         {
             cam = FindObjectOfType<Camera>();
         }
-        if (cam == null)
-        {
-            Debug.Log("Camera not found!");
-            return;
-        }
+        else return;
     }
+
     void Update()
     {
         if (cam != null)
@@ -30,7 +35,5 @@ public class UsernameDisplay : MonoBehaviour
                 transform.position = pos;
             }
         }
-        //transform.LookAt(cam.transform);
-        //transform.Rotate(Vector3.up, 180f);
     }
 }

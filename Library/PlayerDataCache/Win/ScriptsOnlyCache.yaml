@@ -12,6 +12,7 @@ ScriptsOnlyBuild:
     - Pickup
     - PlayerConfig
     - PlayerController
+    - PlayerListItem
     - PlayerManager
     - PlayerStatus
     - RoomListItem
@@ -114,6 +115,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3954}
     - Class: 114
       Script: {instanceID: 3992}
+    - Class: 114
+      Script: {instanceID: 17138}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -241,6 +244,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3992}
     - Class: 114
       Script: {instanceID: 4010}
+    - Class: 114
+      Script: {instanceID: 17138}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -460,7 +465,7 @@ ScriptsOnlyBuild:
     className: CinemachineFixedSignal
   - hash:
       serializedVersion: 2
-      Hash: 4376b2e140a8d943bb0c8db42fee88a0
+      Hash: 730aa73d774356d0e957bf1471a24af4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Launcher
@@ -1276,7 +1281,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 83b0edce0209f668f49da424d2a19874
+      Hash: 69bcb52d4c9efb29eb9692a511abb828
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UsernameDisplay
@@ -1328,6 +1333,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: e0766a0e8938b34dbdc572ce4b274d5c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerListItem
   platform: 5
   scenePathNames:
   - Assets/Scenes/Loading.unity

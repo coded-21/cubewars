@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Resources\Scriptable Objects\Gun.cs" />
     <Compile Include="Assets\BrokenVector\LowPolyFencePack\Scripts\DoorToggle.cs" />
+    <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\PlayerConfig.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
@@ -78,7 +79,7 @@
     <Compile Include="Assets\Scripts\BumpScript.cs" />
     <Compile Include="Assets\Scripts\RoomListItem.cs" />
     <Compile Include="Assets\Scripts\UsernameDisplay.cs" />
-    <Compile Include="Assets\Scripts\HUD.cs" />
+    <Compile Include="Assets\Scripts\PlayerListItem.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

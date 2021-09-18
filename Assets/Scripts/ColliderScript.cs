@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class ColliderScript : MonoBehaviour
 {
-    Vector3 respawnPoint = new Vector3(0, 1, 0);
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerStatus>().playerManager.SelfDestruct();
+            other.GetComponent<PlayerStatus>().playerManager.Die();
         }
         else Destroy(other.gameObject);
     }

@@ -10,10 +10,13 @@ public class Launcher : MonoBehaviourPunCallbacks
 {
     public static Launcher Instance { get; private set; }
 
-    public TMP_InputField hostInput;
-    public TMP_InputField joinInput;
+    [SerializeField] TMP_InputField hostInput;
     [SerializeField] Transform roomListContent;
     [SerializeField] GameObject roomListItem;
+    [SerializeField] Transform playerListContent;
+    [SerializeField] GameObject playerListItem;
+    [SerializeField] TMP_Text roomName;
+    [SerializeField] GameObject startGameButton;
 
     private void Awake()
     {
@@ -35,20 +38,20 @@ public class Launcher : MonoBehaviourPunCallbacks
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             PhotonNetwork.ConnectUsingSettings();
-            Debug.Log("Connected");
         }
     }
 
     public override void OnConnectedToMaster()
     {
+        Debug.Log("Connected");
         PhotonNetwork.JoinLobby();
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnJoinedLobby()
     {
-        Debug.Log("Joined Lobby");
         MenuManager.Instance.OpenMenu("title");
-        //SceneManager.LoadScene("Lobby");
+        PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
     }
 
     public void CreateRoom()
@@ -65,9 +68,32 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(info.Name);
     }
 
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom(true);
+        MenuManager.Instance.OpenMenu("title");
+    }
+
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("Game");
+        MenuManager.Instance.OpenMenu("room");
+        roomName.text = PhotonNetwork.CurrentRoom.Name;
+        Player[] players = PhotonNetwork.PlayerList;
+        for (int i = 0; i < players.Length; i++)
+        {
+            Instantiate(playerListItem, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
+        }
+        startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+    }
+
+    public void StartGame()
+    {
+        PhotonNetwork.LoadLevel(1);
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -80,5 +106,10 @@ public class Launcher : MonoBehaviourPunCallbacks
         {
             Instantiate(roomListItem, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
         }
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Instantiate(playerListItem, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
     }
 }
